@@ -1,0 +1,113 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$morphyn-primary: mat.define-palette(mat.$indigo-palette);
+$morphyn-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$morphyn-warn: mat.define-palette(mat.$red-palette);
+
+$morphyn-theme: mat.define-light-theme((
+  color: (
+    primary: $morphyn-primary,
+    accent: $morphyn-accent,
+    warn: $morphyn-warn,
+  )
+));
+
+@include mat.all-component-themes($morphyn-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 17px 2px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 20%);
+  transition: transform .5s ease-in-out, background-color .5s ease-in-out, color .5s, box-shadow .5s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &__title, &__text {
+    transition: color .5s ease-in-out;
+  }
+  &__content {
+    padding: 10px 10px 2px 15px;
+  }
+  &__image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 8rem;
+  }
+  &__image {
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease-in-out;
+  }
+  &__title {
+    font-size: 1.6rem;
+    line-height: normal;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+  }
+  &--primary-color {
+    &:hover .card__title {
+      color: #2196f3;
+    }
+    &::before {
+      background-image: linear-gradient(to right, #2196f3, #311b92);
+    }
+  }
+  &--secondary-color {
+    &:hover .card__title {
+      color: #f44336;
+    }
+    &::before {
+      background-image: linear-gradient(to left, #f44336, #ff9800);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 38px 3px rgb(0 0 0 / 14%),
+    0 9px 46px 8px rgb(0 0 0 / 12%), 0 11px 15px -7px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    .card__text {
+      color: #212121;
+    }
+    &:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+    .card__image {
+      transform: scale(1.1);
+    }
+  }
+  &--horizontal {
+    flex-direction: row;
+    .card__image-wrapper {
+      width: 150px;
+      height: inherit;
+    }
+  }
+}
+
