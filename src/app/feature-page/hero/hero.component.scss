@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+:host {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.hero-title {
+    font-size: 15rem;
+    font-weight: 600;
+    margin-top: 10%;
+    mix-blend-mode: overlay;
+    line-height: normal;
+    user-select: none;
+    text-decoration: underline;
+}
+
+.hero-slogan {
+    margin-top: -242px;
+    font-weight: 100;
+    line-height: normal;
+    font-size: 2.2rem;
+    z-index: -1;
+    mix-blend-mode: overlay;
+    margin-left: -52px;
+}
+
+.scroll-down-indicator {
+    width: 28px;
+    animation: scroll-down-indicator 2s infinite forwards;
+}
+
+.scroll-down-indicator-wrapper {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+@keyframes scroll-down-indicator {
+    0% { transform: translateY(0) translateX(-50%); }
+    25% { transform: translateY(0) translateX(-50%); }
+    50% { transform: translateY(-6px) translateX(-50%); }
+    100% { transform: translateY(0) translateX(-50%); }
+}

@@ -16,14 +16,24 @@ $morphyn-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($morphyn-theme);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; scroll-behavior: smooth;}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background: linear-gradient(-45deg, #ee7752, #d69c2f, #0c7fa8, #16c098);
+  background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
 
 $card-animation-speed: .3s;
 .card {
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   backdrop-filter: blur(25px);
@@ -38,8 +48,12 @@ $card-animation-speed: .3s;
   &__title, &__text {
     transition: color $card-animation-speed ease-in-out;
   }
+  &__text {
+    padding-top: .5rem;
+    line-height: 0;
+  }
   &__content {
-    padding: 10px 10px 2px 15px;
+    padding: 10px 10px 10px 15px;
   }
   &__image-wrapper {
     position: relative;
@@ -70,29 +84,12 @@ $card-animation-speed: .3s;
     transform: scaleX(0);
     transition: all $card-animation-speed ease-in-out;
   }
-  &--primary-color {
-    &:hover .card__title {
-      color: #2196f3;
-    }
-    &::before {
-      background-image: linear-gradient(to right, #2196f3, #311b92);
-    }
-  }
-  &--secondary-color {
-    &:hover .card__title {
-      color: #f44336;
-    }
-    &::before {
-      background-image: linear-gradient(to left, #f44336, #ff9800);
-    }
-  }
-
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 24px 38px 3px rgb(0 0 0 / 14%),
     0 9px 46px 8px rgb(0 0 0 / 12%), 0 11px 15px -7px rgb(0 0 0 / 20%);
     background-color: #fff;
-    .card__text {
+    .card__text, .card__title {
       color: #212121;
     }
     &:before {
@@ -108,6 +105,22 @@ $card-animation-speed: .3s;
     .card__image-wrapper {
       width: 150px;
       height: inherit;
+    }
+  }
+  &--primary-color {
+    &:hover .card__title {
+      color: #2196f3;
+    }
+    &::before {
+      background-image: linear-gradient(to right, #2196f3, #311b92);
+    }
+  }
+  &--secondary-color {
+    &:hover .card__title {
+      color: #f44336;
+    }
+    &::before {
+      background-image: linear-gradient(to left, #f44336, #ff9800);
     }
   }
 }

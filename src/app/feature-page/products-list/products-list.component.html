@@ -1,0 +1,12 @@
+<span class="title" id="produse">Produse</span>
+<div class="cards-wrapper">
+    <div class="card card--secondary-color" *ngFor="let product of productList">
+        <div class="card__image-wrapper">
+            <img class="card__image" [src]="product.imageUrl">
+        </div>
+        <div class="card__content">
+            <span class="card__title">{{ product.title }}</span>
+            <p class="card__text">{{ product.text }}</p>
+        </div>
+    </div>
+</div>
