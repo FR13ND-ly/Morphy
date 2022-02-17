@@ -1,0 +1,101 @@
+<div>
+    <h1>Plasați comanda</h1>
+    <mat-stepper linear #stepper>
+        <mat-step >
+            <ng-template matStepLabel>Coșul de cumpărături</ng-template>
+            <div class="row">
+                <div class="product column">
+                    <div class="product__image-wrapper">
+                        <img [src]="product.imageUrl" class="product__image">
+                    </div>
+                    <div class="product__content">
+                        <p class="product__title">{{ product.title }}</p>
+                        <p class="product__text">{{ product.text }}</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <h1><b>Preț:</b></h1>
+                    <p>{{ product.text }} lei</p>
+                </div>
+                <hr>
+                <div class="column">
+                    <h1><b>Cantitatea:</b></h1>
+                    <p>{{ product.text }} lei</p>
+                </div>
+            </div>
+            <div class="row">
+                <h1>Total:</h1>
+                <h1><b>{{ product.title}} lei</b></h1>
+            </div>
+        </mat-step>
+        <mat-step completed=false>
+            <ng-template matStepLabel>Informații de contact</ng-template>
+            <div class="row second">
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Nume</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div class="row second">
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Nr. bloc</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Apartament</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div class="row second">
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Scara</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Etajul</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Interferon</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Numărul de telefon</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" appearance="outline">
+                    <mat-label>Informație suplimentară</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Metode de plată</ng-template>
+            <div class="row">
+                <div class="card">
+                    <div class="card__image-wrapper">
+                        <img [src]="product.imageUrl" class="card__image">
+                        <div class="card__content">
+                            <p class="card__title">{{ product.title }}</p>
+                            <p class="card__text">{{ product.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h1>Total:</h1>
+                <h1>{{ product.title}} lei</h1>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

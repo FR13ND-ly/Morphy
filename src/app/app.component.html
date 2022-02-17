@@ -1,2 +1,4 @@
 <app-hero></app-hero>
-<app-products-list></app-products-list>
+<app-description></app-description>
+<app-select-type *ngIf="!selectedType"></app-select-type>
+<app-products *ngIf="selectedType"></app-products>

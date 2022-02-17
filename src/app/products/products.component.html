@@ -1,0 +1,43 @@
+<div class="settings">
+    <h1 id="produse">Setează-ți preferințele</h1>
+    <div>
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="onGenerateProgram()">Generează un meniu alimentar!</button>
+</div>
+<div class="products-wrapper">
+    <div class="card moment-of-day shadow-1" *ngFor="let product of products; let i = index" #momentOfDay>
+        <div style="width: 100%; display: flex; justify-content: space-between;">
+            <h1>{{ product.timeOfDay }}</h1>
+            <button mat-icon-button (click)="onGenerateMomentOfDay(i)"><mat-icon>refresh</mat-icon></button>
+        </div>
+        <p>bla bla bla</p>
+        <div class="product-list-wrapper">
+            <div class="card card--selectable product shadow-2" *ngFor="let product of product.productList">
+                <div class="card__image-wrapper">
+                    <img class="card__image" [src]="product.imageUrl">
+                </div>
+                <div class="card__content">
+                    <p class="card__title">{{ product.title }}</p>
+                    <p class="card__text">{{ product.text }}</p>
+                    <button mat-flat-button color="accent" class="card__buy-button" (click)="onBuy(product)"><mat-icon>shopping_cart</mat-icon>Cumpără</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,14 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { ProductsListComponent } from './feature-page/products-list/products-list.component';
-import { HeroComponent } from './feature-page/hero/hero.component';
+import { SelectTypeComponent } from './select-type/select-type.component';
+import { HeroComponent } from './hero/hero.component';
+import { ProductsComponent } from './products/products.component';
+import { ShopComponent } from './shop/shop.component';
+import { DescriptionComponent } from './description/description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent,
-    HeroComponent
+    SelectTypeComponent,
+    HeroComponent,
+    ProductsComponent,
+    ShopComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
